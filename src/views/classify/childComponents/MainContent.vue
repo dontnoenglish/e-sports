@@ -16,7 +16,7 @@
             <ul class="game-list clearfix" id="js-game-list" style="visibility: visible;">
                 <li class="g-gameCard-item" :title="item.title" v-for="item in contentData" :key="item.id">
                     <a href="" class="g-gameCard-link">
-                        <img src="" alt="" class="g-gameCard-img" :src='item.url'>
+                        <img src="" alt="" class="g-gameCard-img" v-lazy='item.url'>
                         <p class="g-gameCard-fullName">{{ item.title }}</p>
                     </a>
                 </li>
