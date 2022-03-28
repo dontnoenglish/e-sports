@@ -1,6 +1,6 @@
 <template>
      <div>
-             <div class="blog-masthead">
+      <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
           <a class="blog-nav-item active" href="#">Home</a>

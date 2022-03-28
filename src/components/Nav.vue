@@ -8,8 +8,8 @@
         <span class="middle_title">游戏资料</span>
         <p class="middle_subtitle">GAME INFO</p>
       </a>
-      <a href="">
-        <span class="middle_title">商城/合作</span>
+      <a href="/classify">
+        <span class="middle_title">分类</span>
         <p class="middle_subtitle">STORE</p>
       </a>
       <a href="">

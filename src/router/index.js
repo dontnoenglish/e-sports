@@ -16,7 +16,8 @@ Vue.use(VueRouter)
 const Login = ()=>import('../views/Login.vue')
 const HomePage = ()=>import('../views/homepage/HomePage.vue')
 const MainBlog = ()=>import('../views/blog/MainBlog.vue')
-const SetUp = ()=>import('../views/setup/SetUp.vue')
+
+const ClassifyPage = ()=>import('../views/classify/ClassifyPage.vue')
 
 const routes = [
     {
@@ -36,12 +37,12 @@ const routes = [
         component:Login
     },
     {
-        path:'/mainblog',
-        component:MainBlog
+        path:'/classify',
+        component:ClassifyPage
     },
     {
-        path:'/setup',
-        component:SetUp
+        path:'/mainblog',
+        component:MainBlog
     }
 ]
 

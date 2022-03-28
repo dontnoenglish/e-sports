@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Nav from './childComponents/Nav.vue'
+import Nav from '@/components/Nav.vue'
 import Swiper from './childComponents/Swiper.vue'
 import NewSection from './childComponents/NewSection.vue'
 import HotClassify from './childComponents/HotClassify.vue'
