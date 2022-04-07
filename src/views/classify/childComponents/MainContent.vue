@@ -4,8 +4,8 @@
             <h2 class="title">全部分类</h2>
             <div class="filter">
                 <dl>
-                    <dd class="active" v-for="item in titleMessage">
-                        <a href="" class="clickstat">
+                    <dd class="active" v-for="(item,index) in titleMessage" @click="titleClick(index)">
+                        <a href="javascript:;" class="clickstat">
                             <span class="tag-layer">{{ item }}</span>
                         </a>
                     </dd>
@@ -15,7 +15,7 @@
         <div class="box-bd">
             <ul class="game-list clearfix" id="js-game-list" style="visibility: visible;">
                 <li class="g-gameCard-item" :title="item.title" v-for="item in contentData" :key="item.id">
-                    <a href="" class="g-gameCard-link">
+                    <a href="javascript:;" class="g-gameCard-link">
                         <img src="" alt="" class="g-gameCard-img" v-lazy='item.url'>
                         <p class="g-gameCard-fullName">{{ item.title }}</p>
                     </a>
@@ -31,9 +31,26 @@ export default {
   name:'',
   data(){
    return {
-       titleMessage:['全部','网游竞技','单机热游','娱乐天地','手游悠闲'],
-       contentData
+       titleMessage:['全部','网游竞技','单机热游','手游悠闲'],
+       contentData,
+       initContentData:[]
    }
+  },
+  mounted(){
+       this.initContentData = this.contentData
+  },
+  methods:{
+      titleClick(i){
+        if(i){
+            this.contentData = this.initContentData
+            this.contentData = this.contentData.filter((item)=>{
+                return item.belongTo == i
+            })
+        }
+        if(i == 0){
+            this.contentData = this.initContentData
+        }
+      }
   }
 }
 </script>

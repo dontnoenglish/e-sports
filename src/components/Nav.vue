@@ -34,8 +34,8 @@
             <!-- <h1>{{ $store.userInfo }}</h1> -->
         </div>
         <div class="right_div" v-else>
-            <a href="javascript:;">
-                <img src="userInfo.avatar" alt="">
+            <a href="/profile">
+                <img :src="userInfo.avatar" alt="">
             </a>
             <span>{{ userInfo.nickname }}</span>
             <button @click="loginOut">退出登录</button>

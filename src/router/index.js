@@ -15,9 +15,9 @@ Vue.use(VueRouter)
 
 const Login = ()=>import('../views/Login.vue')
 const HomePage = ()=>import('../views/homepage/HomePage.vue')
-const MainBlog = ()=>import('../views/blog/MainBlog.vue')
 
 const ClassifyPage = ()=>import('../views/classify/ClassifyPage.vue')
+const Profile = ()=>import('../views/profile/Profile.vue')
 
 const routes = [
     {
@@ -41,8 +41,8 @@ const routes = [
         component:ClassifyPage
     },
     {
-        path:'/mainblog',
-        component:MainBlog
+        path:'/profile',
+        component:Profile
     }
 ]
 
