@@ -10,15 +10,22 @@ VueRouter.prototype.push = function push(location){
     return original.call(this,location).catch(err=>err)
 }
 //#endregion
-
 Vue.use(VueRouter)
 
 const Login = ()=>import('../views/Login.vue')
 const HomePage = ()=>import('../views/homepage/HomePage.vue')
 
 const ClassifyPage = ()=>import('../views/classify/ClassifyPage.vue')
-const Profile = ()=>import('../views/profile/Profile.vue')
 
+const Profile = ()=>import('../views/profile/Profile.vue')
+//#region 
+const FPost = ()=>import('../views/profile/childComponents/FPost.vue')
+const HPost = ()=>import('../views/profile/childComponents/HPost.vue')
+const TPost = ()=>import('../views/profile/childComponents/TPost.vue')
+const SPost = ()=>import('../views/profile/childComponents/SPost.vue')
+const GPost = ()=>import('../views/profile/childComponents/GPost.vue')
+//#endregion
+const Community = ()=>import('../views/community/Community.vue')
 const routes = [
     {
         path:'/',
@@ -42,7 +49,33 @@ const routes = [
     },
     {
         path:'/profile',
-        component:Profile
+        component:Profile,
+        children:[
+            {
+                path:'fPost',
+                component:FPost
+            },
+            {
+                path:'hPost',
+                component:HPost
+            },
+            {
+                path:'tPost',
+                component:TPost
+            },
+            {
+                path:'sPost',
+                component:SPost
+            },
+            {
+                path:'gPost',
+                component:GPost
+            }
+        ]
+    },
+    {
+        path:'/community',
+        component:Community
     }
 ]
 

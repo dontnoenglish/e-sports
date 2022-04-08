@@ -12,7 +12,7 @@
         <span class="middle_title">分类</span>
         <p class="middle_subtitle">STORE</p>
       </a>
-      <a href="">
+      <a href="/community">
         <span class="middle_title">社区互动</span>
         <p class="middle_subtitle">COMMUNITY</p>
       </a>
