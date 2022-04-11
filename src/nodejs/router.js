@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
 router.get('/login',(req,res)=>{
     res.send('这个啥也没有')
 })
-
+//登录
 router.post('/login',(req,res,next)=>{
    /**
     * 1. 获取表单数据
@@ -33,11 +33,13 @@ router.post('/login',(req,res,next)=>{
            })
        }
        //用户存在，登录成功。通过token记录登录状态
+
+      //  console.log(user._doc);   user._doc存储对应用户信息
       const users = {email}
       const command = 'balabalabala'
       let token = jwt.sign(users,command)
       user.token = token
-      
+      // user.updateOne({token},{$set:{token}})
        res.status(200).json({
            err_code:0,
            message:'登陆成功',
@@ -45,7 +47,7 @@ router.post('/login',(req,res,next)=>{
        })
    })
 })
-
+//注册
 router.post('/register', function (req, res,next) {
     // 1. 获取表单提交的数据
     //    req.body
@@ -96,7 +98,32 @@ router.post('/register', function (req, res,next) {
       })
     })
     // res.json(body)
-  })
-  
+})
+//添加关注项
+router.post('/attention',function (req, res,next){
+   const { item,email} = req.body
+   User.updateOne({
+    email
+   },{
+     $addToSet:{
+       attention:item
+     }
+   },function(err,user){
+     if(err){
+       return next(err)
+     }
+     User.findOne({
+      email
+    },(err,user)=>{
+      if(err){
+        return next(err)
+      }
+       res.status(200).json({
+         user
+       })
+    })
+   })
+
+})
 
 module.exports = router

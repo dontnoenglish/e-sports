@@ -17,7 +17,7 @@ import NewSection from './childComponents/NewSection.vue'
 import HotClassify from './childComponents/HotClassify.vue'
 import Official from './childComponents/Official.vue'
 import Fanart from './childComponents/Fanart.vue'
-import Footer from './childComponents/Footer.vue'
+import Footer from '../../components/Footer.vue'
 
 import { getSession } from  '@/network/login.js'
 export default {

@@ -55,12 +55,13 @@ export default {
 }
 .search-list {
     border-bottom: 1px solid #9C9FA4;
-    height: 420px;
+    height: 405px;
 }
 .search-list li{
     height: 36px;
     margin: 10px 0;
     padding-left: 30px;
+    border-bottom: 1px solid #e3e3e4;
 }
 .search-list li i:nth-child(1) {
     color: #9C9FA4;

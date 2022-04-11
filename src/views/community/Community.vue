@@ -12,6 +12,7 @@
                 <right-nav></right-nav>
             </div>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 
@@ -20,6 +21,7 @@ import Nav from '@/components/Nav.vue'
 import LeftNav from './childComponents/LeftNav.vue'
 import MidNav from './childComponents/MidNav.vue'
 import RightNav from './childComponents/RightNav.vue'
+import Footer from '@/components/Footer.vue'
 export default {
   name:'',
   data(){
@@ -31,7 +33,8 @@ export default {
       Nav,
       LeftNav,
       MidNav,
-      RightNav
+      RightNav,
+      Footer
   }
 }
 </script>

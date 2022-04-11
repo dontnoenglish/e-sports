@@ -4,9 +4,9 @@
       <img src="https://game.gtimg.cn/images/lol/v3/logo-public.png" alt="" />
     </div>
     <div class="nav_middle">
-      <a href="">
-        <span class="middle_title">游戏资料</span>
-        <p class="middle_subtitle">GAME INFO</p>
+      <a href="/homepage">
+        <span class="middle_title">主页</span>
+        <p class="middle_subtitle">Home</p>
       </a>
       <a href="/classify">
         <span class="middle_title">分类</span>

@@ -12,7 +12,7 @@
             <div class="right-top">
                 <a href="javascript:;">
                     <div class="hotTitle">我关注的人</div>
-                    <div class="hotContent">0</div>
+                    <div class="hotContent">{{ attention.length }}</div>
                 </a>
                 <a href="javascript:;">
                     <div class="hotTitle">关注我的人</div>
@@ -34,13 +34,9 @@
                     <div>我关注的社区</div>
                 </div>
                 <ul class="mid-item">
-                    <li>
-                        <img src="https://huyaimg.msstatic.com/cdnimage/game/1-MS.png" alt="">
-                        <i>英雄联盟</i>
-                    </li>
-                    <li>
-                        <img src="https://huyaimg.msstatic.com/cdnimage/game/2793-MS.png" alt="">
-                        <i>绝地求生</i> 
+                    <li v-for="item in attention">
+                        <img :src="item.url" alt="">
+                        <i>{{ item.title }}</i>
                     </li>
                 </ul>
             </div>
@@ -67,6 +63,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name:'',
   data(){
@@ -80,6 +77,11 @@ export default {
           this.current = index
           this.$router.push(item.target)
       }
+  },
+  computed:{
+      ...mapState({
+          attention:state=>state.user.userInfo.attention
+      })
   }
 }
 </script>

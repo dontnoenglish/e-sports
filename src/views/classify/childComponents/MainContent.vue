@@ -14,7 +14,7 @@
         </div>
         <div class="box-bd">
             <ul class="game-list clearfix" id="js-game-list" style="visibility: visible;">
-                <li class="g-gameCard-item" :title="item.title" v-for="item in contentData" :key="item.id">
+                <li class="g-gameCard-item" :title="item.title" v-for="item in contentData" :key="item.id" @click="attention(item)">
                     <a href="javascript:;" class="g-gameCard-link">
                         <img src="" alt="" class="g-gameCard-img" v-lazy='item.url'>
                         <p class="g-gameCard-fullName">{{ item.title }}</p>
@@ -27,6 +27,8 @@
 
 <script>
 import { contentData } from '../data'
+import { getAttention } from '@/network/login.js'
+import { mapMutations  } from 'vuex'
 export default {
   name:'',
   data(){
@@ -40,6 +42,7 @@ export default {
        this.initContentData = this.contentData
   },
   methods:{
+      ...mapMutations(['USER_LOGIN']),
       titleClick(i){
         if(i){
             this.contentData = this.initContentData
@@ -50,6 +53,28 @@ export default {
         if(i == 0){
             this.contentData = this.initContentData
         }
+      },
+      attention(item){
+        this.$confirm('此操作将关注该项目, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+            const {email}  = this.$store.state.user.userInfo
+            getAttention(item,email).then(res=>{
+                //将本地存储的数据更新
+                this.USER_LOGIN(res.user)
+            });
+          this.$message({
+            type: 'success',
+            message: '关注成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消关注'
+          });          
+        });
       }
   }
 }

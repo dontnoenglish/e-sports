@@ -48,6 +48,15 @@ const userSchema = new Schema({
     token:{
         type:String,
         default:''
-    }
+    },
+    //我的关注
+    attention:{
+        type:Array,
+        default:[]
+    },
+    //我发布的帖
+    // post:{
+    //     type:
+    // }
 })
 module.exports = mongoose.model('User',userSchema)

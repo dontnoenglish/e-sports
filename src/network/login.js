@@ -6,7 +6,7 @@ export function getSession(){
     })
 }
 
-
+//登录
 export function getLoginData(email,password){
     // console.log(loginEmail,loginPassword);
     return request({
@@ -18,7 +18,7 @@ export function getLoginData(email,password){
         }
     })
 }
-
+//注册
 export function getRegisterData(nickname,email,password){
     return request({
         url:'/register',
@@ -29,4 +29,17 @@ export function getRegisterData(nickname,email,password){
             password
         }
     })
+}
+
+//添加关注
+export function getAttention(item,email){
+     return request({
+         url:'/attention',
+         method:'POST',
+         data:{
+            item,
+            email
+
+         }
+     })
 }
